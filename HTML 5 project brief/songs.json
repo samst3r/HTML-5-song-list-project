@@ -1,7 +1,18 @@
-{
-  "name": "Dracula",
-  "artist": "Tame Impala",
-  "duration": 205,
-  "genre": "Indie Pop",
-  "songImg": "images/Dracula.jpg"
-}
+[
+  {
+    "name": "Dracula",
+    "artist": "Tame Impala",
+    "duration": 205,
+    "genre": "Indie Pop",
+    "songImg": "images/Dracula.jpg",
+    "songFile": "song_Files/Dracula.mp3"
+  },
+  {
+    "name": "New Person, Same Old Mistakes",
+    "artist": "Tame Impala",
+    "duration": 363,
+    "genre": "Indie",
+    "songImg": "images/currents.jpg",
+    "songFile": "song_Files/New-Person,-Same-Old-Mistakes.mp3"
+  }
+]
