@@ -153,14 +153,33 @@ table {
   grid-template-rows: auto;
 }
 #songCard {
+  padding: 0.5em;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-column: 2;
   width: 100%;
-  height: 10%;
   background-color: bisque;
   border-radius: 1em;
-
   margin: auto;
+  height: 15vh;
+}
+#img {
+  grid-column: 1;
+  height: inherit;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  border-radius: 0.5em;
+}
+#songInfo {
+  grid-column: 2/5;
+}
+#songName {
+  justify-self: center;
+  font-size: 1.5em;
+  text-align: center;
+  height: min-content;
+}
+#artistName {
 }
