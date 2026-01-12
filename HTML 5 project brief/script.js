@@ -1,3 +1,5 @@
+const { createElement } = require("react");
+
 var xml = new XMLHttpRequest();
 
 xml.onreadystatechange = function () {
@@ -6,7 +8,9 @@ xml.onreadystatechange = function () {
     console.log(list);
     list.forEach((song) => {
       console.log(song);
-      document.querySelector("#test").innerHTML = list[0].name;
+      let card = documdent.createElement("div");
+      card.classList.add("songCard");
+      let textData = "";
     });
   }
 };
