@@ -139,23 +139,24 @@ table {
   margin: auto;
 }
 #songlist {
+  padding: 1em;
   background-color: rgb(155, 153, 153);
   grid-column: 1/5;
   grid-row: 1/9;
   border-radius: 1em;
   box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.5);
-  width: 90%;
+  width: 80%;
   height: 90%;
-  display: grid;
+  display: flex;
   justify-self: center;
+
   align-self: center;
-  grid-template-columns: 1fr 10fr 1fr;
-  grid-template-rows: auto;
+  flex-direction: column;
 }
 #songCard {
-  padding: 0.5em;
+  padding: 0em;
   display: grid;
-  grid-gap: 0 1em;
+  grid-gap: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 6fr 1fr;
   grid-column: 2;
@@ -163,7 +164,7 @@ table {
   width: 100%;
   background-color: bisque;
   border-radius: 1em;
-  margin: auto;
+
   height: 8em;
 }
 #img {
