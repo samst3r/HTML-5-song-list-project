@@ -152,7 +152,8 @@ table {
 
   align-self: center;
   flex-direction: column;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 #songCard {
   padding: 0em;
