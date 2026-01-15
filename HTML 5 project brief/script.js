@@ -8,11 +8,18 @@ xml.onreadystatechange = function () {
       console.log(song);
       let card = document.createElement("div");
       card.id = "songCard";
-
+      card.style.backgroundColor = song.cardColor;
+      console.log(song.name + ":" + song.duration);
+      console.log(song.name + " seconds:" + (song.duration % 60));
+      console.log(
+        song.name + " minutes:" + (song.duration - (song.duration % 60)) / 60
+      );
       let textData =
         "<img id='img' src='" +
         song.songImg +
-        "' /><div id='songInfo'><p id='songName'>" +
+        "' /><div id='songInfo' style='color:" +
+        song.textColor +
+        "'><p id='songName'>" +
         song.name +
         "</p><div id='songDetails'><p id='artistName'>Artist: " +
         song.artist +

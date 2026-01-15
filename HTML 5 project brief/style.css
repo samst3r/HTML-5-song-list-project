@@ -152,6 +152,7 @@ table {
 
   align-self: center;
   flex-direction: column;
+  overflow: scroll;
 }
 #songCard {
   padding: 0em;
@@ -160,7 +161,7 @@ table {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 6fr 1fr;
   grid-column: 2;
-
+  margin-bottom: 2vh;
   width: 100%;
   background-color: bisque;
   border-radius: 1em;
@@ -178,9 +179,12 @@ table {
 }
 #songInfo {
   grid-column: 2/5;
+  grid-row: 1/3;
+  margin: auto;
 }
 #songName {
   justify-self: center;
+  text-align: center;
   font-size: 1.5em;
   margin: 0 0 0 0;
   height: min-content;
