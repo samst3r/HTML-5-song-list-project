@@ -16,8 +16,8 @@
     "genre": "Indie Pop",
     "songImg": "images/Dracula.jpg",
     "songFile": "song_Files/Dracula.mp3",
-    "cardColor": "#2B2C30ff",
-    "textColor": "#8EABA9ff"
+    "cardColor": "#90ADAD",
+    "textColor": "#18181B"
   },
   {
     "name": "My Old Ways",
@@ -46,8 +46,8 @@
     "genre": "Alternative Indie",
     "songImg": "images/Cracker-Island.jpeg",
     "songFile": "song_Files/New-Gold.mp3",
-    "cardColor": "#6b145d",
-    "textColor": "#40d1f5"
+    "cardColor": "#421A3D",
+    "textColor": "#EA9FC1FF"
   },
   {
     "name": "El Mañana",
@@ -118,6 +118,46 @@
     "songFile": "song_Files/Seventh-Heaven.mp3",
     "cardColor": "#C3F2F3",
     "textColor": "#35373B"
+  },
+  {
+    "name": "FIRE!!!",
+    "artist": "Vane Lily, Jamie Paige",
+    "duration": 258,
+    "genre": "Vocaloid",
+    "songImg": "images/DAEMON:DOLL.jpeg",
+    "songFile": "",
+    "cardColor": "#29021Bff",
+    "textColor": "#FADFF0ff"
+  },
+  {
+    "name": "Machine Love",
+    "artist": "Jamie Paige",
+    "duration": 217,
+    "genre": "Vocaloid",
+    "songImg": "images/Constant-Companions.jpg",
+    "songFile": "song_Files/Machine-Love.mp3",
+    "cardColor": "#1C2C07",
+    "textColor": "#FD9B9B"
+  },
+  {
+    "name": "INVISIBLE",
+    "artist": "DURAN DURAN",
+    "duration": 191,
+    "genre": "Alternative Indie, Synthpop, Pop Rock",
+    "songImg": "images/INVISIBLE.jpg",
+    "songFile": "song_Files/INVISIBLE.mp3",
+    "cardColor": "#2A2A04",
+    "textColor": "#BEBF02"
+  },
+  {
+    "name": "Red Swan",
+    "artist": "YOSHIKI, HYDE",
+    "duration": 270,
+    "genre": "Alternative Rock",
+    "songImg": "images/Red-Swan.jpeg",
+    "songFile": "song_Files/Red-Swan.mp3",
+    "cardColor": "#721C13",
+    "textColor": "#F4DE67"
   },
   {
     "name": "",
