@@ -160,6 +160,66 @@
     "textColor": "#F4DE67"
   },
   {
+    "name": "The Rumbling",
+    "artist": "SiM",
+    "duration": 221,
+    "genre": "Metalcore, Heavy Metal",
+    "songImg": "images/The-Rumbling.jpeg",
+    "songFile": "song_Files/The-Rumbling.mp3",
+    "cardColor": "#75161F",
+    "textColor": "#EBEBEB"
+  },
+  {
+    "name": "It's Going Down Now",
+    "artist": "Azumi Takahashi, Lotus Juice, ATLUS GAME MUSIC",
+    "duration": 187,
+    "genre": "Hip-Hop, J-Pop",
+    "songImg": "images/Persona-3-Reload-Original-Soundtrack.jpeg",
+    "songFile": "song_Files/It's-Going-Down-Now.mp3",
+    "cardColor": "#14A7E6",
+    "textColor": "#00000A"
+  },
+  {
+    "name": "Tenebre Rosso Sangue",
+    "artist": "Keygen Church",
+    "duration": 234,
+    "genre": "Industrial Metal, Breakcore",
+    "songImg": "images/Tenebre-Rosso-Sangue.jpg",
+    "songFile": "song_Files/Tenebre-Rosso-Sangue.mp3",
+    "cardColor": "#000000",
+    "textColor": "#FA0000"
+  },
+  {
+    "name": "Dark Tides",
+    "artist": "Creo",
+    "duration": 212,
+    "genre": "Speedrun",
+    "songImg": "images/Dark-Tides.jpeg",
+    "songFile": "song_Files/Dark-Tides.mp3",
+    "cardColor": "#20201E",
+    "textColor": "#CAA0BA"
+  },
+  {
+    "name": "Flow",
+    "artist": "Creo",
+    "duration": 206,
+    "genre": "Jazz, Downtempo",
+    "songImg": "images/Flow.jpeg",
+    "songFile": "song_Files/Flow.mp3",
+    "cardColor": "#141318",
+    "textColor": "#BAC9D4"
+  },
+  {
+    "name": "Outlaw",
+    "artist": "Creo",
+    "duration": 304,
+    "genre": "Rock",
+    "songImg": "images/Outlaw.jpeg",
+    "songFile": "song_Files/Outlaw.mp3",
+    "cardColor": "#713B32",
+    "textColor": "#F3E6CEFF"
+  },
+  {
     "name": "",
     "artist": "",
     "duration": 0,
