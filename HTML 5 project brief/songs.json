@@ -124,8 +124,8 @@
     "artist": "Vane Lily, Jamie Paige",
     "duration": 258,
     "genre": "Vocaloid",
-    "songImg": "images/DAEMON:DOLL.jpeg",
-    "songFile": "",
+    "songImg": "images/DAEMON_DOLL.jpeg",
+    "songFile": "song_Files/FIRE!!!.mp3",
     "cardColor": "#29021Bff",
     "textColor": "#FADFF0ff"
   },
@@ -236,8 +236,8 @@
     "genre": "Hyperpop, Bedroom R&B",
     "songImg": "images/Love_Like_That.jpeg",
     "songFile": "song_Files/Love_Like_That.mp3",
-    "cardColor": "#558FCE",
-    "textColor": "#33373E"
+    "cardColor": "#90B8DF",
+    "textColor": "#1F1F1F"
   },
   {
     "name": "",
