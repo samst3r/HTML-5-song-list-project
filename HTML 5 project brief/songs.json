@@ -222,12 +222,22 @@
   {
     "name": "atomic",
     "artist": "Aziya",
-    "duration": 0,
-    "genre": "",
-    "songImg": "",
-    "songFile": "",
-    "cardColor": "",
-    "textColor": ""
+    "duration": 170,
+    "genre": "Pop Rock, Alternative Rock",
+    "songImg": "images/atomic.jpeg",
+    "songFile": "song_Files/Atomic.mp3",
+    "cardColor": "#202020",
+    "textColor": "#E9E9E9"
+  },
+  {
+    "name": "Love Like That",
+    "artist": "Endie",
+    "duration": 189,
+    "genre": "Hyperpop, Bedroom R&B",
+    "songImg": "images/Love_Like_That.jpeg",
+    "songFile": "song_Files/Love_Like_That.mp3",
+    "cardColor": "#558FCE",
+    "textColor": "#33373E"
   },
   {
     "name": "",

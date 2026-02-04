@@ -4,9 +4,15 @@ returnButton.addEventListener("click", function (e) {
   window.location.replace("index.html");
 });
 
+if (localStorage.getItem("songData")) {
+  data = JSON.parse(localStorage.getItem("songData"));
+} else {
+  data = [];
+}
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  let;
   let newSong = {};
+
   form.reset();
 });

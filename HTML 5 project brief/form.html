@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,6 +15,17 @@
           <input type="text" id="songName" required />
           <label id="artstLabel" for="artist">artist:</label>
           <input type="text" id="artist" required />
+          <label id="durationLabel" for="duration">Duration:</label>
+          <input
+            type="number"
+            id="duration"
+            placeholder="How many seconds?"
+            required
+          />
+          <label id="genreLabel" for="genre">Genre:</label>
+          <input type="text" id="genre" required />
+          <label id="imageLabel" for="image">Image:</label>
+          <input type="text" id="image" placeholder="Optional" />
           <div id="submitDiv">
             <button id="returnButton">return</button>
             <button type="submit" id="submitButton">submit</button>
