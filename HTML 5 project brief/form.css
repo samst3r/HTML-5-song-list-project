@@ -231,6 +231,23 @@ input {
   grid-column: 2/4;
 }
 
+#cardColor {
+  grid-row: 7;
+  grid-column: 1;
+}
+#colorDIV {
+  grid-row: 7;
+  grid-column: 1/4;
+  display: flex;
+}
+#colorDIV input {
+  margin: auto;
+  border-radius: 0em;
+  width: 20%;
+}
+#colorDIV label {
+  font-size: 2em;
+}
 #submitButton {
   grid-column: 2/4;
   grid-row: 8;
