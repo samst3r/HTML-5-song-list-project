@@ -41,3 +41,16 @@ form.addEventListener("submit", function (e) {
   form.reset();
   window.location.assign("index.html");
 });
+
+cardColorInput.addEventListener("input", function () {
+  checkForAccessibility();
+});
+textColorInput.addEventListener("input", function () {
+  checkForAccessibility();
+});
+
+function checkForAccessibility() {
+  checkColors(textColorInput.value, cardColorInput.value);
+  let contrast = colorData.contrast;
+  console.log(contrast);
+}

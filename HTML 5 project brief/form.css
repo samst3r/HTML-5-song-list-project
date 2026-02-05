@@ -140,7 +140,7 @@ h1 {
 #grid {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-rows: 1fr 20fr 1fr;
 
   height: 100vh;
   background-size: cover;
@@ -164,8 +164,8 @@ form {
   grid-row: 2;
   display: grid;
   grid-template-columns: 3fr 4fr 1fr;
-  grid-template-rows: 3fr 3fr 3fr 3fr 3fr 3fr 3fr 2fr;
-  border-radius: 3em;
+  grid-template-rows: 2fr 3fr 3fr 3fr 3fr 3fr 3fr 2fr;
+  border-radius: 2em;
   overflow: hidden;
 }
 label {
@@ -231,23 +231,48 @@ input {
   grid-column: 2/4;
 }
 
-#cardColor {
-  grid-row: 7;
-  grid-column: 1;
-}
 #colorDIV {
   grid-row: 7;
   grid-column: 1/4;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+#cardColorLabel {
+  grid-column: 1;
+  grid-row: 1;
+}
+#cardColor {
+  grid-column: 2;
+  grid-row: 1;
+}
+#textColorLabel {
+  grid-column: 1;
+  grid-row: 2;
+}
+#textColor {
+  grid-column: 2;
+  grid-row: 2;
 }
 #colorDIV input {
   margin: auto;
   border-radius: 0em;
-  width: 20%;
+  width: 40%;
 }
 #colorDIV label {
   font-size: 2em;
 }
+#contrastdisplayDIV {
+  grid-column: 3/6;
+  grid-row: 1/3;
+  display: flex;
+  justify-content: center;
+}
+#contrastDisplay {
+  margin: auto;
+  font-size: 2em;
+}
+
 #submitButton {
   grid-column: 2/4;
   grid-row: 8;

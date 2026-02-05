@@ -19,6 +19,7 @@
           <input
             type="number"
             id="duration"
+            min="0"
             placeholder="How many seconds?"
             required
           />
@@ -36,6 +37,9 @@
             />
             <label id="textColorLabel" for="textColor">Text Color:</label>
             <input type="color" id="textColor" placeholder="Optional" />
+            <div id="contrastdisplayDIV">
+              <h1 id="contrastDisplay">Contrast is Acceptable ✅</h1>
+            </div>
           </div>
 
           <div id="submitDiv">
@@ -46,5 +50,6 @@
       </div>
     </main>
     <script src="./form.js"></script>
+    <script src="color-checker.js" charset="utf-8"></script>
   </body>
 </html>
