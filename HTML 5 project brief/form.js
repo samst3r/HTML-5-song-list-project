@@ -6,6 +6,9 @@ let genreInput = document.querySelector("#genre");
 let imageInput = document.querySelector("#image");
 let cardColorInput = document.querySelector("#cardColor");
 let textColorInput = document.querySelector("#textColor");
+let contrastDisplay = document.querySelector("#contrastDisplay");
+
+let contrast = 21;
 
 let returnButton = document.querySelector("#returnButton");
 returnButton.addEventListener("click", function (e) {
@@ -26,20 +29,24 @@ form.addEventListener("submit", function (e) {
   if (imageInput.value != "") {
     image = imageInput.value;
   }
-  let newSong = {
-    name: songTitleInput.value,
-    artist: artistInput.value,
-    duration: durationInput.value,
-    genre: genreInput.value,
-    songImg: image,
-    songFile: "",
-    cardColor: cardColorInput.value,
-    textColor: textColorInput.value,
-  };
-  data.push(newSong);
-  localStorage.setItem("songData", JSON.stringify(data));
-  form.reset();
-  window.location.assign("index.html");
+  if (contrast >= 7) {
+    let newSong = {
+      name: songTitleInput.value,
+      artist: artistInput.value,
+      duration: durationInput.value,
+      genre: genreInput.value,
+      songImg: image,
+      songFile: "",
+      cardColor: cardColorInput.value,
+      textColor: textColorInput.value,
+    };
+    data.push(newSong);
+    localStorage.setItem("songData", JSON.stringify(data));
+    form.reset();
+    window.location.assign("index.html");
+  } else {
+    //put a popup or something stating the contrast must be fixed
+  }
 });
 
 cardColorInput.addEventListener("input", function () {
@@ -51,6 +58,11 @@ textColorInput.addEventListener("input", function () {
 
 function checkForAccessibility() {
   checkColors(textColorInput.value, cardColorInput.value);
-  let contrast = colorData.contrast;
+  contrast = colorData.contrast;
   console.log(contrast);
+  if (contrast >= 7) {
+    contrastDisplay.innerHTML = "Contrast is Acceptable ✅";
+  } else {
+    contrastDisplay.innerHTML = "Contrast is not sufficient ❌";
+  }
 }

@@ -271,6 +271,8 @@ input {
 #contrastDisplay {
   margin: auto;
   font-size: 2em;
+  font-family: "Sdasian";
+  color: white;
 }
 
 #submitButton {

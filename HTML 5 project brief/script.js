@@ -1,15 +1,17 @@
-let addSongButton = document.querySelector("#addSongButton");
+if (document.querySelector("#addSongButton")) {
+  let addSongButton = document.querySelector("#addSongButton");
+  addSongButton.addEventListener("click", function () {
+    window.location.replace("form.html");
+  });
+}
 
-addSongButton.addEventListener("click", function () {
-  window.location.replace("form.html");
-});
 var data = [];
 
 if (localStorage.getItem("songData")) {
   data = JSON.parse(localStorage.getItem("songData"));
 
   if (document.querySelector("#songlist")) {
-    loadCards();
+    loadCards(data);
   }
 } else {
   var xml = new XMLHttpRequest();
@@ -19,7 +21,7 @@ if (localStorage.getItem("songData")) {
       data = JSON.parse(xml.responseText);
       localStorage.setItem("songData", JSON.stringify(data));
       if (document.querySelector("#songlist")) {
-        loadCards();
+        loadCards(data);
       }
     }
   };
@@ -28,8 +30,9 @@ if (localStorage.getItem("songData")) {
   xml.send();
 }
 
-function loadCards() {
-  data.forEach((song) => {
+function loadCards(songs) {
+  document.querySelector("#songlist").innerHTML = "";
+  songs.forEach((song) => {
     console.log(song);
     let card = document.createElement("div");
     card.id = "songCard";
