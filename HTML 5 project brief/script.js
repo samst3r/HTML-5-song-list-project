@@ -4,8 +4,11 @@ if (document.querySelector("#addSongButton")) {
     window.location.replace("form.html");
   });
 }
-
+var filter;
 var data = [];
+var filteredData = [];
+let filterTypeInput = document.querySelector("#filterType");
+let filterInput = document.querySelector("#filterInput");
 
 if (localStorage.getItem("songData")) {
   data = JSON.parse(localStorage.getItem("songData"));
@@ -30,8 +33,11 @@ if (localStorage.getItem("songData")) {
   xml.send();
 }
 
-function loadCards(songs) {
+function loadCards(songs, filteredSongs) {
   document.querySelector("#songlist").innerHTML = "";
+  if (!filteredSongs == []) {
+    songs = filteredSongs;
+  }
   songs.forEach((song) => {
     console.log(song);
     let card = document.createElement("div");
@@ -67,3 +73,25 @@ function loadCards(songs) {
   });
 }
 //domo
+
+filterInput.addEventListener("input", function () {
+  let filter = filterInput.value;
+  let filterType = filterTypeInput.value;
+  console.log(filter);
+  console.log(filterType);
+  filteredData = [];
+  if (filterType === "name") {
+    filteredData = data.filter((item) => item.name.includes(filter));
+    console.log(filteredData);
+    loadCards("", filteredData);
+  } else if (filterType === "artist") {
+    filteredData = data.filter((item) => item.artist.includes(filter));
+    console.log(filteredData);
+    loadCards("", filteredData);
+  } else if (filterType === "genre") {
+    filteredData = data.filter((item) => item.genre.includes(filter));
+    console.log(filteredData);
+    loadCards("", filteredData);
+  }
+  //FIX capitalized letters not filtering properly
+});
