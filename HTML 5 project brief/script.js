@@ -10,6 +10,11 @@ var filteredData = [];
 let filterTypeInput = document.querySelector("#filterType");
 let filterInput = document.querySelector("#filterInput");
 
+/*
+let sortAZButton=document.querySelector("#sortAZ");
+let sortZAButton=document.querySelector("#sortZA");
+
+*/
 if (localStorage.getItem("songData")) {
   data = JSON.parse(localStorage.getItem("songData"));
 
@@ -32,7 +37,20 @@ if (localStorage.getItem("songData")) {
   xml.open("GET", "songs.json", true);
   xml.send();
 }
-
+filterInput.addEventListener("input", function () {
+ filterList();
+});
+filterTypeInput.addEventListener("change", function () {
+ filterList();
+});
+/*
+sortAZButton.addEventListener("click",function(){
+  sort("forward");
+});
+sortAZButton.addEventListener("click",function(){
+ sort("reverse");
+});
+*/
 function loadCards(songs, filteredSongs) {
   document.querySelector("#songlist").innerHTML = "";
   if (!filteredSongs == []) {
@@ -74,24 +92,49 @@ function loadCards(songs, filteredSongs) {
 }
 //domo
 
-filterInput.addEventListener("input", function () {
-  let filter = filterInput.value;
+
+
+function filterList(){
+  let filter = filterInput.value.toLowerCase();
   let filterType = filterTypeInput.value;
   console.log(filter);
   console.log(filterType);
   filteredData = [];
   if (filterType === "name") {
-    filteredData = data.filter((item) => item.name.includes(filter));
+    filteredData = data.filter((item) => item.name.toLowerCase().includes(filter));
     console.log(filteredData);
     loadCards("", filteredData);
   } else if (filterType === "artist") {
-    filteredData = data.filter((item) => item.artist.includes(filter));
+    filteredData = data.filter((item) => item.artist.toLowerCase().includes(filter));
     console.log(filteredData);
     loadCards("", filteredData);
   } else if (filterType === "genre") {
-    filteredData = data.filter((item) => item.genre.includes(filter));
+    filteredData = data.filter((item) => item.genre.toLowerCase().includes(filter));
     console.log(filteredData);
     loadCards("", filteredData);
   }
-  //FIX capitalized letters not filtering properly
-});
+}
+
+
+/*
+function sort(direction){
+
+if(!filteredData == []&&(direction="forward")){
+filteredData.toSorted((a, b) => a.name - a.name);
+loadCards("",filteredData);
+}
+else if(!filteredData == []&&(direction="reverse")){
+filteredData.toSorted((a, b) => a.name - a.name);
+filteredData.reverse();
+loadCards("",filteredData);
+}
+else if((direction="forward")){
+data.toSorted((a, b) => a.name - a.name);
+loadCards(data);
+}else if((direction="reverse")){
+data.toSorted((a, b) => a.name - a.name);
+data.reverse();
+loadCards(data);
+}
+}
+*/
