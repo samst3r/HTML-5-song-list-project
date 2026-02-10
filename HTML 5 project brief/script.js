@@ -38,10 +38,10 @@ if (localStorage.getItem("songData")) {
   xml.send();
 }
 filterInput.addEventListener("input", function () {
- filterList();
+  filterList();
 });
 filterTypeInput.addEventListener("change", function () {
- filterList();
+  filterList();
 });
 /*
 sortAZButton.addEventListener("click",function(){
@@ -92,29 +92,32 @@ function loadCards(songs, filteredSongs) {
 }
 //domo
 
-
-
-function filterList(){
+function filterList() {
   let filter = filterInput.value.toLowerCase();
   let filterType = filterTypeInput.value;
   console.log(filter);
   console.log(filterType);
   filteredData = [];
   if (filterType === "name") {
-    filteredData = data.filter((item) => item.name.toLowerCase().includes(filter));
+    filteredData = data.filter((item) =>
+      item.name.toLowerCase().includes(filter)
+    );
     console.log(filteredData);
     loadCards("", filteredData);
   } else if (filterType === "artist") {
-    filteredData = data.filter((item) => item.artist.toLowerCase().includes(filter));
+    filteredData = data.filter((item) =>
+      item.artist.toLowerCase().includes(filter)
+    );
     console.log(filteredData);
     loadCards("", filteredData);
   } else if (filterType === "genre") {
-    filteredData = data.filter((item) => item.genre.toLowerCase().includes(filter));
+    filteredData = data.filter((item) =>
+      item.genre.toLowerCase().includes(filter)
+    );
     console.log(filteredData);
     loadCards("", filteredData);
   }
 }
-
 
 /*
 function sort(direction){
@@ -138,3 +141,56 @@ loadCards(data);
 }
 }
 */
+
+var sortAZBtn = document.querySelector("#sortAZ");
+var sortZABtn = document.querySelector("#sortZA");
+
+// sort click handlers for buttons, add two buttons to your html and give them the same IDs as below
+sortAZBtn.addEventListener("click", function () {
+  sortByTitle("az");
+});
+sortZABtn.addEventListener("click", function () {
+  sortByTitle("za");
+});
+
+// sort function
+function sortByTitle(direction) {
+  // data should be the variable that stores the list of data, make sure the name matches what you have
+  let localdata = data;
+
+  localdata.sort(function (a, b) {
+    let filterType = filterTypeInput.value;
+    var titleA;
+    var titleB;
+    if (filterType === "name") {
+      titleA = String(a.name).toLowerCase();
+      titleB = String(b.name).toLowerCase();
+    } else if (filterType === "artist") {
+      titleA = String(a.artist).toLowerCase();
+      titleB = String(b.artist).toLowerCase();
+    } else if (filterType === "genre") {
+      titleA = String(a.genre).toLowerCase();
+      titleB = String(b.genre).toLowerCase();
+    }
+
+    if (titleA < titleB) {
+      if (direction == "az") {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+
+    if (titleA > titleB) {
+      if (direction == "az") {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+
+    return 0;
+  });
+
+  loadCards("", localdata);
+}
