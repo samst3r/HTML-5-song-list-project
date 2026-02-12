@@ -210,3 +210,40 @@ table {
   justify-self: center;
   margin-top: 0.3em;
 }
+#vinylSVG {
+  grid-column: 6/12;
+  grid-row: 1/8;
+  height: auto;
+  width: 80%;
+  margin: auto;
+  animation: rotatingVinyl 20s infinite;
+  animation-timing-function: linear;
+  transition: none;
+}
+#addSongButton {
+  grid-row: 8;
+}
+#filterType {
+  grid-row: 8;
+}
+#filterTypeLabel {
+  grid-row: 8;
+}
+#filterInput {
+  grid-row: 8;
+}
+#sortAZ {
+  grid-row: 8;
+}
+#sortZA {
+  grid-row: 8;
+}
+
+@keyframes rotatingVinyl {
+  0% {
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
