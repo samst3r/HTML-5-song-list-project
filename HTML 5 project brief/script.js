@@ -60,6 +60,7 @@ function loadCards(songs, filteredSongs) {
     console.log(song);
     let card = document.createElement("div");
     card.id = "songCard";
+    card.value = song.songFile;
     card.style.backgroundColor = song.cardColor;
     console.log(song.name + ":" + song.duration);
     let seconds = song.duration % 60;
@@ -100,19 +101,19 @@ function filterList() {
   filteredData = [];
   if (filterType === "name") {
     filteredData = data.filter((item) =>
-      item.name.toLowerCase().includes(filter)
+      item.name.toLowerCase().includes(filter),
     );
     console.log(filteredData);
     loadCards("", filteredData);
   } else if (filterType === "artist") {
     filteredData = data.filter((item) =>
-      item.artist.toLowerCase().includes(filter)
+      item.artist.toLowerCase().includes(filter),
     );
     console.log(filteredData);
     loadCards("", filteredData);
   } else if (filterType === "genre") {
     filteredData = data.filter((item) =>
-      item.genre.toLowerCase().includes(filter)
+      item.genre.toLowerCase().includes(filter),
     );
     console.log(filteredData);
     loadCards("", filteredData);

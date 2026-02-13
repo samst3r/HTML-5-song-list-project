@@ -141,7 +141,7 @@ table {
 #songlist {
   padding: 1em;
   background-color: rgb(155, 153, 153);
-  grid-column: 1/5;
+  grid-column: 1/6;
   grid-row: 1/9;
   border-radius: 1em;
   box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.5);
