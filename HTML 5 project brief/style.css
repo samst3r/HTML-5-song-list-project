@@ -1,249 +1,513 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
+/* =============================================
+   CSS RESET
+   ============================================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0; padding: 0; border: 0;
+  font-size: 100%; font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-/* end of css reset*/
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* end of css reset */
 
+/* =============================================
+   DESIGN TOKENS — Cabin Modern
+   ============================================= */
+:root {
+  --forest:      #1C2B1A;   /* deep pine background */
+  --bark:        #3D2B1F;   /* warm dark wood */
+  --pine-mid:    #2A3D27;   /* mid forest green */
+  --ember:       #C8873A;   /* amber accent */
+  --ember-light: #E5A95C;   /* lighter amber hover */
+  --parchment:   #EDE8DC;   /* aged paper */
+  --parchment-dim: #D4CDBE; /* darker parchment */
+  --sage:        #8FA98A;   /* muted sage */
+  --smoke:       #B8C4B5;   /* light smoke text */
+  --cream:       #F5F0E8;   /* off-white */
+  --shadow-dark: rgba(0,0,0,0.55);
+  --shadow-med:  rgba(0,0,0,0.30);
+  --shadow-soft: rgba(0,0,0,0.15);
+
+  --radius-card: 10px;
+  --radius-panel: 14px;
+  --radius-btn:  8px;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --transition: 0.18s ease;
+}
+
+/* =============================================
+   GLOBAL
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--forest);
+  /* Subtle wood-grain texture via repeating gradient */
+  background-image:
+    repeating-linear-gradient(
+      92deg,
+      transparent 0px,
+      transparent 18px,
+      rgba(0,0,0,0.03) 18px,
+      rgba(0,0,0,0.03) 19px
+    ),
+    repeating-linear-gradient(
+      178deg,
+      transparent 0px,
+      transparent 60px,
+      rgba(255,255,255,0.015) 60px,
+      rgba(255,255,255,0.015) 61px
+    );
+  color: var(--parchment);
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+:hover { cursor: default; }
+
+/* =============================================
+   MAIN GRID — Desktop
+   ============================================= */
 #grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 420px 1fr;
+  grid-template-rows: 1fr auto;
   height: 100vh;
   width: 100vw;
+  gap: 0;
+  padding: 24px;
+  column-gap: 28px;
+  row-gap: 8px;
 }
-#playlistName {
-  margin: auto;
-  width: 50%;
-}
-#addPlaylistButton {
-  margin: auto;
-}
-#songlist {
-  padding: 1em;
-  background-color: rgb(155, 153, 153);
-  grid-column: 1/5;
-  grid-row: 1/9;
-  border-radius: 1em;
-  box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.5);
-  width: 80%;
-  height: 90%;
-  display: flex;
-  justify-self: center;
 
-  align-self: center;
+/* =============================================
+   SONG LIST PANEL
+   ============================================= */
+#songlist {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  background-color: var(--bark);
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.06) 3px,
+      rgba(0,0,0,0.06) 4px
+    );
+  border-radius: var(--radius-panel);
+  box-shadow:
+    inset 0 2px 8px rgba(0,0,0,0.4),
+    4px 4px 24px var(--shadow-dark),
+    0 0 0 1px rgba(255,255,255,0.04);
+  padding: 16px 14px 16px 16px;
+  display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ember) transparent;
+  position: relative;
 }
-#songCard {
-  padding: 0em;
+
+#songlist::before {
+  content: "♪ Playlist";
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ember);
+  letter-spacing: 0.06em;
+  padding: 0 4px 12px 4px;
+  border-bottom: 1px solid rgba(200,135,58,0.25);
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+#songlist::-webkit-scrollbar { width: 5px; }
+#songlist::-webkit-scrollbar-track { background: transparent; }
+#songlist::-webkit-scrollbar-thumb {
+  background-color: var(--ember);
+  border-radius: 3px;
+}
+
+/* =============================================
+   SONG CARDS
+   ============================================= */
+.songCard {
   display: grid;
-  grid-gap: 0;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 6fr 1fr;
-  grid-column: 2;
-  margin-bottom: 2vh;
+  grid-template-columns: 72px 1fr;
+  grid-template-rows: auto;
+  margin-bottom: 10px;
   width: 100%;
-  background-color: bisque;
-  border-radius: 1em;
-
-  height: 8em;
+  border-radius: var(--radius-card);
+  min-height: 80px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px var(--shadow-med);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
 }
-#img {
+
+.songCard:hover {
+  transform: translateX(3px);
+  box-shadow: 0 4px 16px var(--shadow-dark);
+  cursor: pointer;
+}
+
+.songCard:last-child { margin-bottom: 0; }
+
+.songImg {
   grid-column: 1;
-  grid-row: 1/3;
-  height: inherit;
-  display: flex;
-  justify-self: center;
+  grid-row: 1;
+  width: 72px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  flex-shrink: 0;
+}
 
-  border-radius: 0.5em;
-}
-#songInfo {
-  grid-column: 2/5;
-  grid-row: 1/3;
-  margin: auto;
-  text-align: center;
-}
-:hover {
-  cursor: default;
-}
-#songName {
-  justify-self: center;
-  text-align: center;
-  font-size: 1.5em;
-  margin: 0 0 0 0;
-  height: min-content;
-  width: fit-content;
-}
-#songDetails {
+.songInfo {
+  grid-column: 2;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: 1.2em;
-}
-#songDetails p {
-  margin-top: 0.2em;
+  justify-content: center;
+  padding: 10px 12px;
+  gap: 4px;
+  text-align: left;
+  overflow: hidden;
 }
 
-#play {
+.songName {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.25;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 2.5em;
+}
+
+.songDetails {
   display: flex;
-  justify-self: center;
-  margin-top: 0.3em;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.72rem;
+  opacity: 0.82;
+  gap: 2px;
 }
+
+.songDetails p { margin-top: 0; }
+
+/* =============================================
+   VINYL — Right Panel
+   ============================================= */
 #vinylSVG {
-  grid-column: 6/12;
-  grid-row: 1/8;
+  grid-column: 2;
+  grid-row: 1;
   height: auto;
-  width: 80%;
+  width: min(70vh, 560px);
   margin: auto;
-  animation: rotatingVinyl 20s infinite;
-  animation-timing-function: linear;
-  transition: none;
-}
-#addSongButton {
-  grid-row: 8;
-}
-#filterType {
-  grid-row: 8;
-}
-#filterTypeLabel {
-  grid-row: 8;
-}
-#filterInput {
-  grid-row: 8;
-}
-#sortAZ {
-  grid-row: 8;
-}
-#sortZA {
-  grid-row: 8;
+  display: block;
+  align-self: center;
+  justify-self: center;
+  animation: rotatingVinyl 20s linear infinite;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.6));
 }
 
 @keyframes rotatingVinyl {
-  0% {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #vinylSVG { animation: none; }
+}
+
+/* =============================================
+   BOTTOM CONTROLS BAR
+   ============================================= */
+.controls-bar {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 0 0 0;
+  justify-content: center;
+}
+
+/* Elements inside controls bar */
+#addSongButton,
+#filterType,
+#filterTypeLabel,
+#filterInput,
+#sortAZ,
+#sortZA {
+  flex-shrink: 1;
+  min-width: fit-content;
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+button,
+#addSongButton,
+#sortAZ,
+#sortZA {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 7px 14px;
+  background-color: var(--ember);
+  color: var(--forest);
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 2px 6px rgba(200,135,58,0.35);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+button:hover,
+#addSongButton:hover,
+#sortAZ:hover,
+#sortZA:hover {
+  background-color: var(--ember-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(200,135,58,0.45);
+  cursor: pointer;
+}
+
+button:active,
+#addSongButton:active,
+#sortAZ:active,
+#sortZA:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(200,135,58,0.3);
+}
+
+/* =============================================
+   FILTER CONTROLS
+   ============================================= */
+#filterTypeLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--sage);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+#filterType {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  background-color: var(--pine-mid);
+  color: var(--parchment);
+  border: 1px solid rgba(143,169,138,0.3);
+  border-radius: var(--radius-btn);
+  padding: 7px 10px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+#filterType:focus {
+  border-color: var(--ember);
+}
+
+#filterInput {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  background-color: var(--pine-mid);
+  color: var(--parchment);
+  border: 1px solid rgba(143,169,138,0.3);
+  border-radius: var(--radius-btn);
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 140px;
+  min-width: 100px;
+}
+
+#filterInput::placeholder { color: var(--sage); opacity: 0.7; }
+
+#filterInput:focus {
+  border-color: var(--ember);
+  box-shadow: 0 0 0 2px rgba(200,135,58,0.2);
+  cursor: text;
+}
+
+/* =============================================
+   BREAKPOINT: Large tablet (1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+  #grid {
+    grid-template-columns: 340px 1fr;
+    padding: 18px;
+    column-gap: 20px;
   }
 
-  100% {
-    rotate: 360deg;
+  #vinylSVG {
+    width: min(42vh, 360px);
   }
+
+  #filterInput { width: 130px; }
+  
+  button,
+  #addSongButton,
+  #sortAZ,
+  #sortZA {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
+}
+
+/* =============================================
+   BREAKPOINT: Tablet portrait (768px)
+   ============================================= */
+@media (max-width: 768px) {
+  body { overflow: auto; }
+
+  #grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  #songlist {
+    order: 2;
+    max-height: 55vh;
+    border-radius: var(--radius-panel);
+  }
+
+  #vinylSVG {
+    order: 1;
+    width: min(220px, 45vw);
+    margin: 8px auto 0;
+    animation-duration: 20s;
+  }
+
+  .controls-bar {
+    order: 3;
+    grid-column: unset;
+    grid-row: unset;
+    width: 100%;
+    gap: 8px;
+    padding: 0;
+  }
+
+  #addSongButton,
+  #filterTypeLabel,
+  #filterType,
+  #filterInput,
+  #sortAZ,
+  #sortZA {
+    font-size: 0.85rem;
+    padding: 10px 14px;
+  }
+
+  #filterInput { width: 100%; }
+}
+
+/* =============================================
+   BREAKPOINT: Mobile (480px)
+   ============================================= */
+@media (max-width: 480px) {
+  #grid {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  #vinylSVG {
+    width: min(160px, 40vw);
+  }
+
+  #songlist {
+    max-height: 52vh;
+    padding: 12px 10px 12px 12px;
+  }
+
+  #songCard {
+    height: 70px;
+    grid-template-columns: 60px 1fr;
+  }
+
+  #img {
+    width: 60px;
+    height: 70px;
+  }
+
+  #songName { font-size: 0.85rem; }
+  #songDetails { font-size: 0.66rem; }
+
+  .controls-bar {
+    gap: 6px;
+  }
+
+  button,
+  #addSongButton,
+  #sortAZ,
+  #sortZA {
+    padding: 10px 14px;
+    font-size: 0.75rem;
+  }
+
+  #filterInput { font-size: 0.75rem; }
+}
+
+/* =============================================
+   BREAKPOINT: Small mobile (360px)
+   ============================================= */
+@media (max-width: 360px) {
+  #grid { padding: 10px; gap: 10px; }
+
+  #vinylSVG { width: 130px; }
+
+  #songlist { max-height: 48vh; }
+
+  #songCard { height: 64px; grid-template-columns: 54px 1fr; }
+  #img { width: 54px; height: 64px; }
 }

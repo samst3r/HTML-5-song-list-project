@@ -238,15 +238,5 @@
     "songFile": "song_Files/Love_Like_That.mp3",
     "cardColor": "#90B8DF",
     "textColor": "#1F1F1F"
-  },
-  {
-    "name": "",
-    "artist": "",
-    "duration": 0,
-    "genre": "",
-    "songImg": "",
-    "songFile": "",
-    "cardColor": "",
-    "textColor": ""
   }
 ]

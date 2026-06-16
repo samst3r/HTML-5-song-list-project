@@ -1,308 +1,449 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
+/* =============================================
+   CSS RESET
+   ============================================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0; padding: 0; border: 0;
+  font-size: 100%; font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* end of css reset */
+
+/* =============================================
+   DESIGN TOKENS — Cabin Modern
+   ============================================= */
+:root {
+  --forest:       #1C2B1A;
+  --bark:         #3D2B1F;
+  --pine-mid:     #2A3D27;
+  --pine-dark:    #1F3020;
+  --ember:        #C8873A;
+  --ember-light:  #E5A95C;
+  --parchment:    #EDE8DC;
+  --parchment-dim:#D4CDBE;
+  --sage:         #8FA98A;
+  --smoke:        #B8C4B5;
+  --cream:        #F5F0E8;
+  --shadow-dark:  rgba(0,0,0,0.55);
+  --shadow-med:   rgba(0,0,0,0.30);
+
+  --radius-panel: 16px;
+  --radius-input: 8px;
+  --radius-btn:   8px;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --transition: 0.18s ease;
 }
+
+/* =============================================
+   GLOBAL
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  min-height: 100%;
+  width: 100%;
+}
+
 body {
-  line-height: 1;
+  font-family: var(--font-body);
+  background-color: var(--forest);
+  background-image:
+    repeating-linear-gradient(
+      92deg,
+      transparent 0px, transparent 18px,
+      rgba(0,0,0,0.03) 18px, rgba(0,0,0,0.03) 19px
+    ),
+    repeating-linear-gradient(
+      178deg,
+      transparent 0px, transparent 60px,
+      rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px
+    );
+  color: var(--parchment);
+  line-height: 1.5;
 }
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-/*css reset ends */
 
-@font-face {
-  font-family: "Sdasian";
-  src: url("Sdasian-WyDon.ttf") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
 a {
-  color: white;
+  color: var(--ember);
   text-decoration: none;
+  transition: color var(--transition);
 }
-h1 {
-  height: fit-content;
-}
+a:hover { color: var(--ember-light); }
+
+/* =============================================
+   PAGE LAYOUT
+   ============================================= */
 #grid {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 1fr 20fr 1fr;
-
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 32px 20px 40px;
+  gap: 0;
 }
 
+/* =============================================
+   PAGE TITLE
+   ============================================= */
 #form-Title {
-  grid-column: 1/4;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--parchment);
   text-align: center;
-  font-family: "Sdasian";
-  color: white;
-  font-size: 3em;
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
   position: relative;
-  top: 2vh;
 }
+
+#form-Title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--ember);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* =============================================
+   FORM PANEL
+   ============================================= */
 form {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  grid-column: 2/3;
-  grid-row: 2;
-  display: grid;
-  grid-template-columns: 3fr 4fr 1fr;
-  grid-template-rows: 2fr 3fr 3fr 3fr 3fr 3fr 3fr 2fr;
-  border-radius: 2em;
-  overflow: hidden;
+  max-width: 680px;
+  background-color: rgba(30, 44, 28, 0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(143,169,138,0.15);
+  border-radius: var(--radius-panel);
+  box-shadow:
+    0 8px 40px var(--shadow-dark),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  padding: 36px 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
+
+/* =============================================
+   FORM ROWS
+   ============================================= */
+.form-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(143,169,138,0.1);
+}
+
+.form-row:last-of-type { border-bottom: none; }
+
+/* Fallback for existing label/input without .form-row wrapper */
 label {
-  text-align: center;
-  font-family: "Sdasian";
-  color: white;
-  font-size: 4em;
-  height: fit-content;
-  margin: auto;
-}
-#nameLabel {
-  grid-column: 1/2;
-  grid-row: 2;
-}
-input {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 2.5em;
-  width: 70%;
-  height: 70%;
-  margin: auto;
-  border-radius: 1em;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-align: left;
+  margin: 0;
+  height: auto;
 }
 
-#songName {
-  grid-column: 2/4;
-  grid-row: 2;
-  font-size: 1.8em;
-  border-radius: 2em;
+input[type="text"],
+input[type="number"] {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  background-color: rgba(0,0,0,0.28);
+  color: var(--parchment);
+  border: 1px solid rgba(143,169,138,0.25);
+  border-radius: var(--radius-input);
+  padding: 11px 14px;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
-#artistLabel {
-  grid-column: 1/2;
-  grid-row: 3;
-}
-#artist {
-  grid-row: 3;
-  grid-column: 2/4;
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: var(--ember);
+  box-shadow: 0 0 0 2px rgba(200,135,58,0.22);
+  cursor: text;
 }
 
-#durationLabel {
-  grid-column: 1/2;
-  grid-row: 4;
-}
-#duration {
-  grid-row: 4;
-  grid-column: 2/4;
-}
-#genreLabel {
-  grid-row: 5;
-  grid-column: 1/2;
-}
-#genre {
-  grid-row: 5;
-  grid-column: 2/4;
-}
-#imageLabel {
-  grid-column: 1/2;
-  grid-row: 6;
-}
-#image {
-  grid-row: 6;
-  grid-column: 2/4;
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  color: var(--sage);
+  opacity: 0.6;
 }
 
+/* =============================================
+   GRID-POSITIONED FIELDS (matching existing HTML IDs)
+   ============================================= */
+#nameLabel   { grid-column: 1; grid-row: unset; }
+#songName    { grid-column: 2; grid-row: unset; font-size: 0.92rem; border-radius: var(--radius-input); }
+#artstLabel  { grid-column: 1; }
+#artist      { grid-column: 2; }
+#durationLabel { grid-column: 1; }
+#duration    { grid-column: 2; }
+#genreLabel  { grid-column: 1; }
+#genre       { grid-column: 2; }
+#imageLabel  { grid-column: 1; }
+#image       { grid-column: 2; }
+
+/* Override the form grid with flex-column approach for cleaner layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Each label+input pair as a row */
+#nameLabel, #artstLabel, #durationLabel, #genreLabel, #imageLabel {
+  display: block;
+  padding-top: 14px;
+  padding-bottom: 5px;
+}
+
+#songName, #artist, #duration, #genre, #image {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+/* =============================================
+   COLOR SECTION
+   ============================================= */
 #colorDIV {
-  grid-row: 7;
-  grid-column: 1/4;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 16px 0 0 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1.4fr;
   grid-template-rows: 1fr 1fr;
+  gap: 10px 16px;
+  align-items: center;
+  border: 1px solid rgba(143,169,138,0.12);
 }
+
 #cardColorLabel {
   grid-column: 1;
   grid-row: 1;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sage);
+  padding: 0;
 }
+
+#textColorLabel {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sage);
+  padding: 0;
+}
+
 #cardColor {
   grid-column: 2;
   grid-row: 1;
 }
-#textColorLabel {
-  grid-column: 1;
-  grid-row: 2;
-}
+
 #textColor {
   grid-column: 2;
   grid-row: 2;
 }
-#colorDIV input {
-  margin: auto;
-  border-radius: 0em;
-  width: 40%;
+
+input[type="color"] {
+  width: 44px;
+  height: 36px;
+  padding: 2px;
+  background-color: rgba(0,0,0,0.3);
+  border: 1px solid rgba(143,169,138,0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0;
 }
-#colorDIV label {
-  font-size: 2em;
-}
+
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 3px; }
+input[type="color"]::-webkit-color-swatch { border-radius: 4px; border: none; }
+
 #contrastdisplayDIV {
-  grid-column: 3/6;
-  grid-row: 1/3;
+  grid-column: 3;
+  grid-row: 1 / 3;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
+
 #contrastDisplay {
-  margin: auto;
-  font-size: 2em;
-  font-family: "Sdasian";
-  color: white;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--parchment);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* =============================================
+   SUBMIT ROW
+   ============================================= */
+#submitDiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(143,169,138,0.15);
+}
+
+#returnButton,
+#submitButton {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+#returnButton {
+  background-color: rgba(143,169,138,0.15);
+  color: var(--smoke);
+  border: 1px solid rgba(143,169,138,0.3);
+}
+
+#returnButton:hover {
+  background-color: rgba(143,169,138,0.25);
+  color: var(--parchment);
+  transform: translateY(-1px);
 }
 
 #submitButton {
-  grid-column: 2/4;
-  grid-row: 8;
-  width: 40%;
-  justify-self: center;
-  font-size: 1.5em;
-  height: fit-content;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border-radius: 2em;
-}
-#returnButton {
-  grid-column: 1/2;
-  grid-row: 8;
-  width: 40%;
-  justify-self: center;
-  font-size: 1.5em;
-  height: fit-content;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border-radius: 2em;
+  background-color: var(--ember);
+  color: var(--forest);
+  box-shadow: 0 3px 10px rgba(200,135,58,0.35);
+  flex: 1;
+  max-width: 260px;
 }
 
-#submitDiv {
-  grid-column: 1/4;
-  grid-row: 8;
-  display: flex;
-  justify-content: space-evenly;
+#submitButton:hover {
+  background-color: var(--ember-light);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(200,135,58,0.45);
+}
+
+#submitButton:active,
+#returnButton:active {
+  transform: translateY(0);
+}
+
+/* =============================================
+   BREAKPOINT: Tablet (768px)
+   ============================================= */
+@media (max-width: 768px) {
+  #grid {
+    padding: 24px 16px 32px;
+  }
+
+  form {
+    padding: 28px 24px 24px;
+  }
+
+  #colorDIV {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  #contrastdisplayDIV {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+}
+
+/* =============================================
+   BREAKPOINT: Mobile (480px)
+   ============================================= */
+@media (max-width: 480px) {
+  #grid {
+    padding: 16px 12px 28px;
+  }
+
+  form {
+    padding: 22px 18px 20px;
+    border-radius: 12px;
+  }
+
+  #form-Title {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    font-size: 0.88rem;
+    padding: 10px 12px;
+  }
+
+  #submitDiv {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  #submitButton,
+  #returnButton {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+
+  #colorDIV { padding: 12px 14px; gap: 8px; }
+  #contrastDisplay { font-size: 0.75rem; }
+}
+
+/* =============================================
+   BREAKPOINT: Small mobile (360px)
+   ============================================= */
+@media (max-width: 360px) {
+  form { padding: 18px 14px 16px; }
+  #form-Title { font-size: 1.5rem; }
+  label { font-size: 0.7rem; }
+  input[type="text"],
+  input[type="number"] { font-size: 0.82rem; padding: 9px 11px; }
 }

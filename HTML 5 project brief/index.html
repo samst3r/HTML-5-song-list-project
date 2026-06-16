@@ -9,17 +9,19 @@
   <body>
     <div id="grid">
       <div id="songlist"></div>
-      <button id="addSongButton">Add a Song</button>
-      <label id="filterTypeLabel" for="filterType">Filter by:</label>
-      <select id="filterType">
-        <option value="name">Song Name</option>
-        <option value="artist">Artist</option>
-        <option value="genre">Genre</option>
-      </select>
-      <input id="filterInput" type="text" />
-      <button id="sortAZ">Sort A-Z</button>
-      <button id="sortZA">Sort Z-A</button>
       <img id="vinylSVG" src="./images/Vinyl record illustrator.svg" />
+      <div class="controls-bar">
+        <button id="addSongButton">Add a Song</button>
+        <label id="filterTypeLabel" for="filterType">Filter by:</label>
+        <select id="filterType">
+          <option value="name">Song Name</option>
+          <option value="artist">Artist</option>
+          <option value="genre">Genre</option>
+        </select>
+        <input id="filterInput" type="text" />
+        <button id="sortAZ">Sort A-Z</button>
+        <button id="sortZA">Sort Z-A</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
